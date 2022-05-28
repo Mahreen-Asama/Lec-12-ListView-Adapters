@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        friendlist.add("Ali");
+        friendlist.add("zain");
         friendlist.add("Arham");
         friendlist.add("Ashar");
 
@@ -29,11 +30,13 @@ public class MainActivity extends AppCompatActivity {
         adapter=new ArrayAdapter<String>
                 (this, android.R.layout.simple_list_item_1, friendlist);
 
+        Collections.sort(friendlist);
+
         listView.setAdapter(adapter);
     }
 
     public void Add(View view){
         friendlist.add("sharmeen");
-        //adapter.notifyDataSetChanged();
+        adapter.notifyDataSetChanged();
     }
 }
