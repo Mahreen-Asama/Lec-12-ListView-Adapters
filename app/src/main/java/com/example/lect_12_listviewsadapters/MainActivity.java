@@ -34,6 +34,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void Add(View view){
         friendlist.add("sharmeen");
-        adapter.notifyDataSetChanged();
+        //adapter.notifyDataSetChanged();
     }
 }
