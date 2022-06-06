@@ -2,6 +2,7 @@ package com.example.lect_12_listviewsadapters;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         Collections.sort(friendlist);
 
         listView.setAdapter(adapter);
-
+        //delete record
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -47,6 +48,17 @@ public class MainActivity extends AppCompatActivity {
                 //delete
                 friendlist.remove(i);
                 adapter.notifyDataSetChanged();
+            }
+        });
+        //view details
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Log.d("friend list",friendlist.get(i));
+                Intent intent=new Intent(MainActivity.this,DetailActivity.class);
+                intent.putExtra("name",friendlist.get(i));
+                intent.putExtra("id",l);
+                intent.putExtra("position",i);
             }
         });
     }
