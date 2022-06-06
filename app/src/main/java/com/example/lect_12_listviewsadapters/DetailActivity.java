@@ -4,16 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.Collections;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -23,11 +15,16 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.detail_activity);
+        setContentView(R.layout.activity_detail);
 
-        Intent intent=getIntent();
-        name.setText(intent.getStringExtra("name"));
-        id.setText(intent.getStringExtra("id"));
-        position.setText(intent.getStringExtra("position"));
+                img=findViewById(R.id.imageView);
+                name=findViewById(R.id.textView);
+                id=findViewById(R.id.textView2);
+                position=findViewById(R.id.textView3);
+
+                Intent intent=getIntent();
+                name.setText(intent.getStringExtra("name"));
+                id.setText(intent.getStringExtra("id"));
+                position.setText(intent.getStringExtra("position"));
     }
 }

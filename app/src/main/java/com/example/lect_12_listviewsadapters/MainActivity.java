@@ -37,19 +37,19 @@ public class MainActivity extends AppCompatActivity {
 
         listView.setAdapter(adapter);
         //delete record
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Log.d("adapter view ",adapterView.toString());
-                Log.d("view view ",view.toString());
-                Log.d("int i ",String.valueOf(i));
-                Log.d("long l ",String.valueOf(l));
-                Log.d("friend list",friendlist.get(i));
-                //delete
-                friendlist.remove(i);
-                adapter.notifyDataSetChanged();
-            }
-        });
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Log.d("adapter view ",adapterView.toString());
+//                Log.d("view view ",view.toString());
+//                Log.d("int i ",String.valueOf(i));
+//                Log.d("long l ",String.valueOf(l));
+//                Log.d("friend list",friendlist.get(i));
+//                //delete
+//                friendlist.remove(i);
+//                adapter.notifyDataSetChanged();
+//            }
+//        });
         //view details
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("name",friendlist.get(i));
                 intent.putExtra("id",l);
                 intent.putExtra("position",i);
+                startActivity(intent);
             }
         });
     }
